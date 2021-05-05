@@ -1,0 +1,8 @@
+python-dotenv==0.13.0
+aiogram
+psycopg2-binary
+universal-analytics-python3
+reportlab
+PyPDF2
+pdf2image
+PyMuPDF
