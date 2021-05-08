@@ -63,7 +63,7 @@ async def reply_main_menu(message: types.Message, state: FSMContext):
     await state.update_data(
         {"reply": "menu"}
     )
-    await bot.send_message(chat_id=message.chat.id, text=await texts.exit(), reply_markup=keyboards.yes_or_no)
+    await bot.send_message.chat.id(chat_id=message.chat.id, text=await texts.exit(), reply_markup=keyboards.yes_or_no)
     await message.delete()
 
 
@@ -206,6 +206,7 @@ async def act1(call: CallbackQuery, state: FSMContext):
     await edit_or_send_message(bot, call, state=state, text=await texts.act1(state), kb=keyboards.next,
                                disable_web=True)
     await UserState.recruiting_method.set()
+    
     await call.answer()
 
 
@@ -265,6 +266,8 @@ async def set_recruiting_method(call: CallbackQuery, state: FSMContext):
     await edit_or_send_message(bot, call, state=state, text=await texts.positions_of_people(state),
                                kb=keyboards.positions_of_people,
                                disable_web=True)
+    await bot.send_sticker(chat_id=message.chat.id, text=await texts.exit(), reply_markup=keyboards.yes_or_no)
+    await message.delete()
     await call.answer()
 
 
